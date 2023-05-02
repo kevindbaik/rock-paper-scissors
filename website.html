@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Rock, Paper, Scissors </title>
+    <style>
+      button {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <p> Choose one and try to beat me!</p>
+    <button onclick="
+    getRandomNumber();
+      if (computerDecision === 'rock') {
+        alert(`I chose ${computerDecision} too... let's try again!`)
+    } else if (computerDecision === 'paper') {
+        alert(`Ha! I chose ${computerDecision}... you lose!`)
+    } else if (computerDecision === 'scissors') {
+        alert(`Aww man, I chose ${computerDecision}... you win.`)
+    }
+    ">Rock</button> <br>
+    <button onclick="
+    getRandomNumber();
+      if (computerDecision === 'rock') {
+        alert(`Aww man, I chose ${computerDecision}... you win.`)
+    } else if (computerDecision === 'paper') {
+        alert(`I chose ${computerDecision} too... let's try again!`)
+    } else if (computerDecision === 'scissors') {
+        alert(`Ha! I chose ${computerDecision}... you lose!`)
+    }
+    ">Paper</button> <br>
+    <button onclick="
+    getRandomNumber();
+      if (computerDecision === 'rock') {
+        alert(`Ha! I chose ${computerDecision}... you lose!`)
+    } else if (computerDecision === 'paper') {
+        alert(`Aww man, I chose ${computerDecision}... you win.`)
+    } else if (computerDecision === 'scissors') {
+        alert(`I chose ${computerDecision} too... let's try again!`)
+    }
+    ">Scissors</button>
+
+    <script>
+      let randomNumber = 0;
+      let computerDecision = '';
+
+      function getRandomNumber() {
+        randomNumber = Math.random();
+        if (randomNumber >= 0 && randomNumber < 1 / 3) {
+          return computerDecision = 'rock'
+        } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+          return computerDecision = 'paper'
+        } else if (randomNumber >= 2 / 3 && randomNumber < 1 ) {
+          return computerDecision = 'scissors'
+        }
+      }
+    </script>
+  </body>
+</html>
