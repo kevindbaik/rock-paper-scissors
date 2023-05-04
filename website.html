@@ -13,19 +13,34 @@
     <button onclick="
     getComputerDecision();
     getPlayerMove('rock');
+    getScore();
     ">Rock</button> <br>
     <button onclick="
     getComputerDecision();
     getPlayerMove('paper');
+    getScore();
     ">Paper</button> <br>
     <button onclick="
     getComputerDecision();
-    getPlayerMove('scissors')
-    ">Scissors</button>
+    getPlayerMove('scissors');
+    getScore();
+    ">Scissors</button> <br>
+    <button onclick="
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+    alert('Score has been reset');
+    ">Reset Score</button>
 
     <script>
       let randomNumber = 0;
       let computerDecision = '';
+      let result = '';
+      const score = {
+       wins: 0,
+       losses: 0,
+       ties: 0
+      }
 
       function getComputerDecision() {
         randomNumber = Math.random();
@@ -42,31 +57,58 @@
       function getPlayerMove(playerMove) {
        if (playerMove === 'rock') {
         if (computerDecision === 'rock') {
+         result = 'tie';
          alert(`I chose ${computerDecision} too... let's try again!`)
         } else if (computerDecision === 'paper') {
+          result = 'lose';
           alert(`Ha! I chose ${computerDecision}... you lose!`)
         } else if (computerDecision === 'scissors') {
+          result = 'win';
           alert(`Aww man, I chose ${computerDecision}... you win.`)
         }
        } else if (playerMove === 'paper') {
         if (computerDecision === 'rock') {
+          result = 'win';
           alert(`Aww man, I chose ${computerDecision}... you win.`)
         } else if (computerDecision === 'paper') {
+          result = 'tie';
           alert(`I chose ${computerDecision} too... let's try again!`)
         } else if (computerDecision === 'scissors') {
+          result = 'lose';
           alert(`Ha! I chose ${computerDecision}... you lose!`)
         }
        } else if (playerMove === 'scissors') {
         if (computerDecision === 'rock') {
+          result = 'lose';
           alert(`Ha! I chose ${computerDecision}... you lose!`)
         } else if (computerDecision === 'paper') {
+          result = 'win';
           alert(`Aww man, I chose ${computerDecision}... you win.`)
         } else if (computerDecision === 'scissors') {
+          result = 'tie';
           alert(`I chose ${computerDecision} too... let's try again!`)
         }
        }
       }
 
+      function getScore () {
+      if (result === 'win') {
+        score.wins ++;
+        alert(`Wins: ${score.wins}
+Losses: ${score.losses}
+Ties: ${score.ties}`)
+      } else if (result === 'lose') {
+        score.losses ++;
+        alert(`Wins: ${score.wins}
+Losses: ${score.losses}
+Ties: ${score.ties}`)
+      } else if (result === 'tie') {
+        score.ties ++;
+        alert(`Wins: ${score.wins}
+Losses: ${score.losses}
+Ties: ${score.ties}`)
+      }
+    }
     </script>
   </body>
 </html>
